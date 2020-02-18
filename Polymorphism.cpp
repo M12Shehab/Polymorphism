@@ -2,19 +2,68 @@
 //
 
 #include <iostream>
+#include "Rectangle.h"
+#include "Triangle.h"
+using namespace std;
+
+void example1()
+{
+    Shape* shape;
+    Rectangle rec(10, 7);
+    Triangle  tri(10, 5);
+
+    // store the address of Rectangle
+    shape = &rec;
+
+    // call rectangle area.
+    shape->area();
+
+    // store the address of Triangle
+    shape = &tri;
+
+    // call triangle area.
+    shape->area();
+}
+
+void example2()
+{
+    Shape** shapes;
+    int capacity;
+
+    do
+    {
+        cout << "Please enter positive value of capacity : ";
+        cin >> capacity;
+
+        if (capacity <= 1)
+        {
+            cout << "- Waring: The capacity should be positive value only, please try again.\n- At least make it 2 to run demo.\n";
+        }
+    }
+    while (capacity<=1);
+    // I am sure my code will not pass this point until user enter valid intger.
+    shapes = new Shape * [capacity];
+    
+    Rectangle rec(10, 7);
+    Triangle  tri(10, 5);
+
+    // store the address of Rectangle
+    shapes[0] = &rec;
+
+    // store the address of Triangle
+    shapes[1] = &tri;
+
+    // Loop just for two elements 
+    for (size_t i = 0; i < 2; i++)
+    {
+        shapes[i]->area();
+    }
+    
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    example1();
+    example2();
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
