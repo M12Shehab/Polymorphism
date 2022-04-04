@@ -9,4 +9,4 @@ Sample demo to apply Polymorphism technique in Cplus
 
 ### Authors
 
-*Mohammed A. Shehab and Mustafa Daraghmeh*
+*Mohammed A. Shehab*
